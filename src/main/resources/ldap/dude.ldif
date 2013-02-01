@@ -1,0 +1,95 @@
+version: 1
+
+dn: o=dude
+objectClass: organization
+objectClass: extensibleObject
+objectClass: top
+o: dude
+
+dn: ou=users,o=dude
+objectClass: extensibleObject
+objectClass: organizationalUnit
+objectClass: top
+ou: users
+
+dn: ou=groups,o=dude
+objectClass: extensibleObject
+objectClass: organizationalUnit
+objectClass: top
+ou: groups
+
+dn: cn=User,ou=groups,o=dude
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: User
+uniqueMember: cn=Bruce Snyder,ou=users,o=dude
+uniqueMember: cn=Jeffery Lebowski,ou=users,o=dude
+uniqueMember: cn=Walter Sobchak,ou=users,o=dude
+uniqueMember: cn=Donnie Kerabatsos,ou=users,o=dude
+
+dn: cn=Admin,ou=groups,o=dude
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: Admin
+uniqueMember: cn=Bruce Snyder,ou=users,o=dude
+uniqueMember: cn=Jeffery Lebowski,ou=users,o=dude
+
+dn: cn=Release_Owner,ou=groups,o=dude
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: Release_Owner
+uniqueMember: cn=Walter Sobchak,ou=users,o=dude
+
+dn: cn=Deployer,ou=groups,o=dude
+objectClass: groupOfUniqueNames
+objectClass: top
+cn: Deployer
+uniqueMember: cn=Donnie Kerabatsos,ou=users,o=dude
+
+dn: cn=Bruce Snyder,ou=users,o=dude
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Bruce Snyder
+sn: Snyder
+uid: bsnyder
+userPassword:: cGFzcw==
+email: bsnyder@localhost
+description: A strange dude
+
+dn: cn=Jeffery Lebowski,ou=users,o=dude
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Jeffery Lebowski
+sn: Lebowski
+uid: jlebowski
+userPassword:: cGFzcw==
+email: jlebowski@localhost
+description: Another strange dude
+
+dn: cn=Walter Sobchak,ou=users,o=dude
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Walter Sobchak
+sn: Sobchak
+uid: wsobchak
+userPassword:: cGFzcw==
+email: wsobchak@localhost
+description: A crazy dude
+
+dn: cn=Donnie Kerabatsos,ou=users,o=dude
+objectClass: organizationalPerson
+objectClass: person
+objectClass: inetOrgPerson
+objectClass: top
+cn: Donnie Kerabatsos
+sn: Kerabatsos
+uid: dkerabatsos
+userPassword:: cGFzcw==
+email: dkerabatsos@localhost
+description: A mellow dude

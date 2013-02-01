@@ -3,14 +3,14 @@
 .project
 .settings
 .springBeans
-Servers 
+Servers
 bin
 
 # Maven 
 target
 
 # For Mac OS X 
-.DS_Store 
+.DS_Store
 
 # Logging 
 *.log

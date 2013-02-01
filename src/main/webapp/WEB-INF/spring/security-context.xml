@@ -6,16 +6,23 @@
 
   <security:http>
     <security:intercept-url pattern="/welcome*" access="ROLE_USER"/>
+    <security:intercept-url pattern="/admin*" access="ROLE_ADMIN"/>
+    <security:intercept-url pattern="/release*" access="ROLE_RELEASE_OWNER"/>
+    <security:intercept-url pattern="/deploy*" access="ROLE_DEPLOYER"/>
     <security:form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/loginfailed"/>
     <security:logout logout-success-url="/logout"/>
   </security:http>
   
   <security:authentication-manager>
-    <security:authentication-provider>
-      <security:user-service>
-        <security:user name="bsnyder" password="bsnyder" authorities="ROLE_USER"/>
-      </security:user-service>
-    </security:authentication-provider>
-  </security:authentication-manager>
+      <security:ldap-authentication-provider 
+        user-search-filter="(uid={0})" 
+        user-search-base="ou=users" 
+        group-search-filter="(uniqueMember={0})"
+        group-search-base="ou=groups"
+        group-role-attribute="cn"
+        role-prefix="ROLE_"/>
+    </security:authentication-manager>
+    
+    <security:ldap-server root="o=dude" ldif="classpath:ldap/dude.ldif"/>
 
 </beans>
