@@ -20,7 +20,9 @@
         group-search-filter="(uniqueMember={0})"
         group-search-base="ou=groups"
         group-role-attribute="cn"
-        role-prefix="ROLE_"/>
+        role-prefix="ROLE_">
+        <security:password-compare hash="plaintext"/>
+      </security:ldap-authentication-provider>
     </security:authentication-manager>
     
     <security:ldap-server root="o=dude" ldif="classpath:ldap/dude.ldif"/>
