@@ -55,7 +55,7 @@ cn: Bruce Snyder
 sn: Snyder
 uid: bsnyder
 userPassword:: cGFzcw==
-email: bsnyder@localhost
+mail: bsnyder@localhost
 description: A strange dude
 
 dn: cn=Jeffery Lebowski,ou=users,o=dude
@@ -67,7 +67,7 @@ cn: Jeffery Lebowski
 sn: Lebowski
 uid: jlebowski
 userPassword:: cGFzcw==
-email: jlebowski@localhost
+mail: jlebowski@localhost
 description: Another strange dude
 
 dn: cn=Walter Sobchak,ou=users,o=dude
@@ -79,7 +79,7 @@ cn: Walter Sobchak
 sn: Sobchak
 uid: wsobchak
 userPassword:: cGFzcw==
-email: wsobchak@localhost
+mail: wsobchak@localhost
 description: A crazy dude
 
 dn: cn=Donnie Kerabatsos,ou=users,o=dude
@@ -91,5 +91,5 @@ cn: Donnie Kerabatsos
 sn: Kerabatsos
 uid: dkerabatsos
 userPassword:: cGFzcw==
-email: dkerabatsos@localhost
+mail: dkerabatsos@localhost
 description: A mellow dude

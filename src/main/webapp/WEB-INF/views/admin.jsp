@@ -8,8 +8,10 @@
 <title>Admin</title>
 </head>
 <body>
-	<h3>Message : ${message}</h3>	
-	<h3>Username : ${username}</h3>	
+	<h3>Message: ${message}</h3>	
+	<h3>Username: ${user.username}</h3>	
+	<h3>Email: ${user.email}</h3>
+	<h3>Description: ${user.description}</h3>
  
 	<a href="<c:url value="/j_spring_security_logout" />" >Logout</a>
 </body>

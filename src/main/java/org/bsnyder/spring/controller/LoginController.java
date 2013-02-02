@@ -4,8 +4,11 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bsnyder.spring.security.CustomUser;
+import org.bsnyder.spring.security.CustomUserDetailsContextMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -23,11 +26,20 @@ public class LoginController {
 	static final String ROLE_DEPLOYER = "ROLE_DEPLOYER";
 	static final String ROLE_RELEASE_OWNER = "ROLE_RELEASE_OWNER";
 	
+	@Autowired
+	private CustomUserDetailsContextMapper userDetailsMapper; 
+	
 	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
 	public String welcome(ModelMap model, Principal principal) {
+		
 		String name = principal.getName();
+		
 		List<String> roles = new ArrayList<String>();
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		
+		CustomUser customUser = userDetailsMapper.getUserDetails();
+		LOGGER.debug("CustomUser object: " + customUser);
+		
 		for (GrantedAuthority authority : auth.getAuthorities()) {
 			String a = authority.getAuthority();
 			roles.add(a);
@@ -38,6 +50,8 @@ public class LoginController {
 		
 		if (roles.contains(ROLE_ADMIN)) {
 			model.addAttribute("message", "Your are logged in as a ADMIN");
+			model.addAttribute("username", principal);
+			model.addAttribute("user", customUser);
 			return "admin";
 		} else if (roles.contains(ROLE_RELEASE_OWNER)) {
 			model.addAttribute("message", "Your are logged in as a RELEASE_OWNER");
